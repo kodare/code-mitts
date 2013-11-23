@@ -1,9 +1,13 @@
 import cherrypy
+from jinja2 import Environment, PackageLoader
+
+environment = Environment(loader=PackageLoader('codemitts', 'templates'))
 
 
-class HelloWorld(object):
+class Root(object):
+    @cherrypy.expose
     def index(self):
-        return "Hello World! Best wishes /Code Mitts"
-    index.exposed = True
+        template = environment.get_template('index.html')
+        return template.render()
 
-cherrypy.quickstart(HelloWorld())
+cherrypy.quickstart(Root())
