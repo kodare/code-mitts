@@ -1,13 +1,15 @@
-import cherrypy
-from jinja2 import Environment, PackageLoader
+from cherrypy import quickstart
+from codemitts.controllers import Root
+import os
 
-environment = Environment(loader=PackageLoader('codemitts', 'templates'))
-
-
-class Root(object):
-    @cherrypy.expose
-    def index(self):
-        template = environment.get_template('index.html')
-        return template.render()
-
-cherrypy.quickstart(Root())
+current_dir = os.path.dirname(os.path.abspath(__file__))
+cherrypy_config = {
+    '/': {
+        'tools.staticdir.root': current_dir
+    },
+    '/static': {
+        'tools.staticdir.on': True,
+        'tools.staticdir.dir': "resources/static"
+    }
+}
+quickstart(Root(), "", cherrypy_config)
