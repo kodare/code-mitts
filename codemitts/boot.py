@@ -1,6 +1,8 @@
 from cherrypy import quickstart
 from codemitts.controllers import Root
+from codemitts.assets import compileLess
 import os
+
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 cherrypy_config = {
@@ -13,3 +15,4 @@ cherrypy_config = {
     }
 }
 quickstart(Root(), "", cherrypy_config)
+compileLess()
