@@ -14,5 +14,5 @@ cherrypy_config = {
         'tools.staticdir.dir': "resources/static"
     }
 }
-quickstart(Root(), "", cherrypy_config)
 compileLess()
+quickstart(Root(), "", cherrypy_config)
