@@ -19,11 +19,18 @@ Install
     $ virtualenv -p python3.3 ./virtualenv
 
 
-Booting
--------
+Get all dependencies
+--------------------
+
+Whenever you get a new version you need to do the following:
 
     $ source virtualenv/bin/activate
     $ pip install -r requirements.txt
     $ git submodule init
     $ git submodule update
-    $ python ./code-mitts/boot.py
+
+
+Booting
+-------
+
+    $ ./run.sh
