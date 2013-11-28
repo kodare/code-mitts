@@ -8,8 +8,8 @@ Requirements
 *   virtualenv - https://pypi.python.org/pypi/virtualenv
 *   lessc - http://lesscss.org/
 
-Other requirements are listed in requirements.txt and should be installed using
-pip in the environment provided by virtualenv.
+Other requirements are provided as submodules or are listed in requirements.txt.
+Further details below.
 
 
 Install
