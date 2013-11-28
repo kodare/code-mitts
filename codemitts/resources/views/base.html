@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{% block title%}{% endblock %}</title>
-
-    {% block stylesheets %}
+    <title>{% block title%}CodeMitts{% endblock %}</title>
+    {% block stylesheets -%}
         <link rel="stylesheet" href="/static/css/main.css" type="text/css">
-    {% endblock %}
+    {%- endblock %}
   </head>
   <body>
     {% block body %}
-        {% block header %}{% endblock %}
-        {% block content %}{% endblock %}
-        {% block footer %}{% endblock %}
+        {%- block header %}
+            {%- include "partial/navbar.html" -%}
+        {% endblock -%}
+        {%- block content %}{% endblock -%}
+        {%- block footer %}{% endblock -%}
     {% endblock %}
   </body>
 </html>
