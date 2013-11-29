@@ -10,4 +10,4 @@ if [ -f ./virtualenv/bin/activate ]; then
     . ./virtualenv/bin/activate
 fi
 
-python ./codemitts/boot.py $@
+python${1} ./codemitts/boot.py $@
