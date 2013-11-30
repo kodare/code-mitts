@@ -7,6 +7,7 @@ Requirements
 *   Python 3.3
 *   virtualenv - https://pypi.python.org/pypi/virtualenv
 *   lessc - http://lesscss.org/
+*   MongoDB - http://www.mongodb.org/
 
 Other requirements are provided as submodules or are listed in requirements.txt.
 Further details below.
@@ -35,3 +36,17 @@ Booting
 -------
 
     $ ./run.sh
+
+
+Generate test data
+------------------
+
+To generate test data for the database, run:
+
+    $ ./loadtestdata.sh
+
+
+Suggested utilities
+-------------------
+
+ * Robomongo ([http://robomongo.org/]()) - A great and simple tool for browsing MongoDB databases

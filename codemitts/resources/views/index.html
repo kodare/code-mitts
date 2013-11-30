@@ -5,6 +5,25 @@
         <div class="container">
             <h1>CodeMitts</h1>
             <p>Let the great experiment begin!</p>
+            <h2>Projects</h2>
+            <ul>
+                {% for project in projects %}
+                    <li>{{ project.name }}
+                        {# TODO: implement inversed references for all models #}
+                        <ul>
+                            {% for feature in project.features %}
+                                <li>{{ feature.name }}
+                                    <ul>
+                                        {% for task in feature.tasks %}
+                                            <li>{{ task.name }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 {% endblock %}

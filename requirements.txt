@@ -1,3 +1,5 @@
 CherryPy==3.2.4
 Jinja2==2.7.1
 Webassets==0.9
+mongoengine==0.8.4
+blinker==1.3
