@@ -1,0 +1,8 @@
+[oauth2]
+    name = # Name of the service
+    client_id = # Provided by service
+    client_secret = # Provided by the service
+    authorize_url = # e.g. https://github.com/login/oauth/authorize
+    access_token_url = # e.g. https://github.com/login/oauth/access_token
+    base_url = # e.g. https://api.github.com/
+    callback_url = # e.g. http://127.0.0.1:8080/authentication/oauth_callback

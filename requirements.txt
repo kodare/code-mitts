@@ -3,3 +3,4 @@ Jinja2==2.7.1
 Webassets==0.9
 mongoengine==0.8.4
 blinker==1.3
+Rauth==0.6.2

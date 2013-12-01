@@ -1,12 +1,36 @@
-from jinja2 import Environment, PackageLoader
+import cherrypy
+from codemitts.authentication import getAuthURL, getAuthSession, getUserInformation
 from codemitts.models.Project import Project
-
-environment = Environment(loader=PackageLoader('codemitts', 'resources/views'))
+from codemitts.jinja import render_template
 
 
 class Root():
+    def __init__(self):
+        self.authentication = Authentication()
+
     def index(self):
-        template = environment.get_template('index.html')
-        # TODO: Implement inverse lookup of all model reference fields http://stackoverflow.com/questions/14470565/bi-directional-relationship-in-mongoengine
-        return template.render(projects = Project.objects)
+        return render_template('index.html', { 'projects': Project.objects})
     index.exposed = True
+
+
+class Authentication():
+    exposed = True
+
+    def oauth_login(self):
+        raise cherrypy.HTTPRedirect(getAuthURL())
+    oauth_login.exposed = True
+
+    def oauth_callback(self, **params):
+        # TODO Handle error messages from the API. Especially those likely to
+        # occur such as "access_denied" and "redirect_uri_missmatch"
+        session = getAuthSession(params['code'])
+        cherrypy.session['user'] = getUserInformation(session)
+
+        raise cherrypy.HTTPRedirect("/")
+    oauth_callback.exposed = True
+
+    def logout(self):
+        cherrypy.session.delete()
+
+        raise cherrypy.HTTPRedirect("/")
+    logout.exposed = True

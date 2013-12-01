@@ -12,6 +12,10 @@ Requirements
 Other requirements are provided as submodules or are listed in requirements.txt.
 Further details below.
 
+You also need some OAuth2 service to be able to login right now. GitHub's
+OAuth2 API is confirmed to work with Code-Mitts. Ideally it should
+work with just any OAuth2 API.
+
 
 Install
 -------
@@ -19,10 +23,12 @@ Install
     $ git clone http://github.com/kodare/code-mitts.git
     $ cd code-mitts
     $ virtualenv -p python3.3 ./virtualenv
+    $ cp config/codemitts.ini.dist config/codemitts.ini
+    Make necessary changes to config/codemitts.ini to suit your environment
 
 
-Get all dependencies
---------------------
+Updating
+--------
 
 Whenever you get a new version you need to do the following:
 
@@ -30,6 +36,7 @@ Whenever you get a new version you need to do the following:
     $ pip install -r requirements.txt
     $ git submodule init
     $ git submodule update
+    Merge config/codemitts.ini and config/codemitts.ini.dist
 
 
 Booting
