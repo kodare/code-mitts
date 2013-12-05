@@ -12,6 +12,7 @@ database_connect('codemitts')
 user1 = User(
     first_name = 'Lisa',
     last_name = 'Andersson',
+    email = 'lisa.andersson@example.org',
     username = 'Lisa'
 )
 
@@ -20,6 +21,7 @@ user1.save()
 user2 = User(
     first_name = 'Per',
     last_name = 'Nilsson',
+    email = 'per.nilsson@example.org',
     username = 'Per'
 )
 

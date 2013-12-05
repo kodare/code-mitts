@@ -13,7 +13,11 @@ service = OAuth2Service(
 
 
 def getAuthURL():
-    params = {'redirect_uri': oauth2_config['callback_url'], 'response_type': 'code'}
+    params = {
+        'redirect_uri': oauth2_config['callback_url'],
+        'response_type': 'code',
+        'scope': 'user:email'
+    }
     return service.get_authorize_url(**params)
 
 
@@ -28,3 +32,10 @@ def getUserInformation(auth_session):
     api_url = oauth2_config['base_url'] + 'user'
     result = auth_session.get(api_url, params={'format': 'json'})
     return result.json()
+
+
+def getUserEmail(auth_session):
+    # TODO This is very GitHub specific as well
+    api_url = oauth2_config['base_url'] + 'user/emails'
+    result = auth_session.get(api_url, params={'format': 'json'})
+    return result.json()[0]
