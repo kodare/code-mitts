@@ -20,8 +20,8 @@ work with just any OAuth2 API.
 Install
 -------
 
-    $ git clone http://github.com/kodare/code-mitts.git
-    $ cd code-mitts
+    $ git clone http://github.com/kodare/codemitts.git
+    $ cd codemitts
     $ virtualenv -p python3.3 ./virtualenv
     $ cp config/codemitts.ini.dist config/codemitts.ini
     Make necessary changes to config/codemitts.ini to suit your environment
