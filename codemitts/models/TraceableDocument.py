@@ -1,8 +1,9 @@
-from mongoengine import *
+from mongoengine import DateTimeField, Document, ReferenceField
 from datetime import datetime
 from codemitts.models.User import User
 
 # These models are for now only examples, feel free to change them when needed
+
 
 class TraceableDocument(Document):
     created_by = ReferenceField(User, required=False)
