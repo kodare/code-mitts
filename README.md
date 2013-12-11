@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/kodare/codemitts.png)](https://travis-ci.org/kodare/codemitts])
+
 Setup
 =====
 
