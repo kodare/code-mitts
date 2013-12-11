@@ -1,7 +1,7 @@
 import os
 from cherrypy import quickstart
 from codemitts.models import database_connect
-from codemitts.controllers import Root
+from codemitts.controllers.root import Root
 from codemitts.assets import compileLess
 
 # Connect to the database

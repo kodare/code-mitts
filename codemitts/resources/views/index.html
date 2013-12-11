@@ -3,8 +3,19 @@
 {% block content %}
     <div class="jumbotron">
         <div class="container">
-            <h1>CodeMitts</h1>
-            <p>Let the great experiment begin!</p>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1>CodeMitts</h1>
+                    <p>Let the great experiment begin!</p>
+                </div>
+                <div class="col-sm-4 col-sm-offset-1">
+                    <a
+                        class="btn btn-lg btn-default btn-block"
+                        href="/user/new">
+                        Join this server
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
     <div class="container">
@@ -31,6 +42,8 @@
                                     {% endfor %}
                                 </ul>
                             </li>
+                        {% else %}
+                            <li class="list-group-item">There's no projects</li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -47,6 +60,8 @@
                                 class="list-group-item">
                                 {{ user.username }}
                             </a>
+                        {% else %}
+                            <li class="list-group-item">There's no users</li>
                         {% endfor %}
                     </div>
                 </div>

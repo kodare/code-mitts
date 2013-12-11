@@ -1,0 +1,9 @@
+{% if flash_messages|length > 0 %}
+    <ul class="container flash-messages-container list-unstyled">
+        {% for key, message in flash_messages.items() %}
+            <li class="alert alert-{{ message.type }}">
+                {{ message.content }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
