@@ -1,6 +1,6 @@
 import os
 import cherrypy
-from codemitts.assets import compileLess
+from codemitts.assets import compileLess, compileJavascript
 from codemitts.models import database_connect
 from codemitts.controllers.root import Root
 from codemitts.config import config as codemitts_config
@@ -8,6 +8,7 @@ from codemitts.config import config as codemitts_config
 
 database_connect('codemitts')
 compileLess()
+compileJavascript()
 
 config = {
     '/': {

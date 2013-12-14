@@ -3,4 +3,5 @@ __pycache__
 *.pyc
 .webassets-cache/
 codemitts/resources/static/css/*.css
+codemitts/resources/static/javascript/*.js
 /config/codemitts.ini
