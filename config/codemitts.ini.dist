@@ -1,3 +1,7 @@
+[webserver]
+    host = 127.0.0.1
+    port = 8080
+
 [oauth2]
     name = # Name of the service
     client_id = # Provided by service

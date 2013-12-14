@@ -1,16 +1,17 @@
 import os
-from cherrypy import quickstart
+import cherrypy
+from codemitts.assets import compileLess
 from codemitts.models import database_connect
 from codemitts.controllers.root import Root
-from codemitts.assets import compileLess
+from codemitts.config import config as codemitts_config
 
-# Connect to the database
+
 database_connect('codemitts')
+compileLess()
 
-current_dir = os.path.dirname(os.path.abspath(__file__))
-cherrypy_config = {
+config = {
     '/': {
-        'tools.staticdir.root': current_dir,
+        'tools.staticdir.root': os.path.dirname(os.path.abspath(__file__)),
         'tools.sessions.on': True
     },
     '/static': {
@@ -18,5 +19,13 @@ cherrypy_config = {
         'tools.staticdir.dir': "resources/static"
     }
 }
-compileLess()
-quickstart(Root(), "", cherrypy_config)
+
+cherrypy.tree.mount(root=Root(), config=config)
+
+cherrypy.config.update({
+    'server.socket_host': codemitts_config['webserver']['host'],
+    'server.socket_port': int(codemitts_config['webserver']['port'])
+})
+
+cherrypy.engine.start()
+cherrypy.engine.block()

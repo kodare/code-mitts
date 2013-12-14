@@ -1,5 +1,5 @@
 from rauth import OAuth2Service
-from config import config
+from codemitts.config import config
 
 oauth2_config = config['oauth2']
 
