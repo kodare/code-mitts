@@ -1,41 +1,8 @@
-// Brand colors
-// -------------------------
+@brand-primary: #ABB823; // CM-green
 
-@brand-primary:         #ABB823; // CM-green
-@brand-primary-light:         #D0DC56;
-@brand-complementary:   #661B7C; // the complementary color to CM-green
-@brand-complementary-light:   #A54EBD;
+@state-success-text: #468847;
+@state-success-bg: lighten(@brand-primary, 40%);
+@state-success-border: darken(spin(@state-success-bg, -10), 5%);
 
-
-// Navbar
-// -------------------------
-
-// Basics of a navbar
-@navbar-height:                    50px;
-@navbar-margin-bottom:             @line-height-computed;
-@navbar-border-radius:             @border-radius-base;
-@navbar-padding-horizontal:        floor(@grid-gutter-width / 2);
-@navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
-
-@navbar-default-color:             #fff;
-@navbar-default-bg:                @brand-primary;
-@navbar-default-border:            darken(@navbar-default-bg, 6.5%);
-
-// Navbar links
-@navbar-default-link-color:                #333;
-@navbar-default-link-hover-color:          #444;
-@navbar-default-link-hover-bg:             transparent;
-@navbar-default-link-active-color:         #222;
-@navbar-default-link-active-bg:            darken(@navbar-default-bg, 6.5%);
-@navbar-default-link-disabled-color:       #ccc;
-@navbar-default-link-disabled-bg:          transparent;
-
-// Navbar brand label
-@navbar-default-brand-color:               @navbar-default-link-color;
-@navbar-default-brand-hover-color:         darken(@navbar-default-brand-color, 10%);
-@navbar-default-brand-hover-bg:            transparent;
-
-// Navbar toggle
-@navbar-default-toggle-hover-bg:           #ddd;
-@navbar-default-toggle-icon-bar-bg:        #ccc;
-@navbar-default-toggle-border-color:       #ddd;
+@grid-gutter-width: 5px;
+@border-radius-base: 1px;
