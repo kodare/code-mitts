@@ -1,10 +1,7 @@
-from mongoengine import ReferenceField
-from codemitts.models.BaseDocument import BaseDocument
-from codemitts.models.Feature import Feature
+from mongoengine import EmbeddedDocument, StringField
 
 
-# These models are for now only examples, feel free to change them when needed
-
-class Task(BaseDocument):
-    feature = ReferenceField(Feature, required=True)
+class Task(EmbeddedDocument):
+    name = StringField()
+    description = StringField()
     meta = {'allow_inheritance': True}

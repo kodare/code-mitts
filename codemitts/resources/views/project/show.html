@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% import "user/macros.html" as user_macros %}
+
+{% block title %}
+    {{ project.name }}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{ project.name }}</h1>
+        <div class="rows">
+            <div class="col-sm-8">
+                {{ project.description }}
+            </div>
+
+            <div class="col-sm-4">
+                {{ user_macros.card(project.created_by) }}
+            </div>
+
+            <div class="col-sm-8">
+                <h2>Features</h2>
+                <ul class="list-group">
+                    {% for feature in project.features %}
+                        <li class="list-group-item">
+                            <h3>{{ feature.name }}</h3>
+                            {{ feature.description }}
+                            <ul>
+                                {% for task in feature.tasks %}
+                                    <li>
+                                        <h4>{{ task.name }}</h4>
+                                        {{ task.description }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li class="list-group-item">There's no features</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -5,6 +5,9 @@ from codemitts.models import database_connect
 from codemitts.controllers.root import Root
 from codemitts.config import config as codemitts_config
 
+from codemitts.models.CodeTask import CodeTask
+from codemitts.models.DocumentationTask import DocumentationTask
+
 
 database_connect('codemitts')
 compileLess()

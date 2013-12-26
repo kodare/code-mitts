@@ -1,7 +1,13 @@
+from datetime import datetime
+from mongoengine import (DateTimeField, EmbeddedDocumentField, ListField,
+                         ReferenceField)
 from codemitts.models.BaseDocument import BaseDocument
-
-# These models are for now only examples, feel free to change them when needed
+from codemitts.models.Feature import Feature
+from codemitts.models.User import User
 
 
 class Project(BaseDocument):
-    pass
+    created_at = DateTimeField(required=True, default=datetime.utcnow)
+    updated_at = DateTimeField(required=True)
+    features = ListField(EmbeddedDocumentField(Feature))
+    created_by = ReferenceField(User)

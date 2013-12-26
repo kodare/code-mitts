@@ -1,9 +1,9 @@
-from mongoengine import ReferenceField
-from codemitts.models.BaseDocument import BaseDocument
-from codemitts.models.Project import Project
-
-# These models are for now only examples, feel free to change them when needed
+from mongoengine import (EmbeddedDocument, StringField, EmbeddedDocumentField,
+                         ListField)
+from codemitts.models.Task import Task
 
 
-class Feature(BaseDocument):
-    project = ReferenceField(Project, required=True)
+class Feature(EmbeddedDocument):
+    name = StringField()
+    description = StringField()
+    tasks = ListField(EmbeddedDocumentField(Task))

@@ -27,27 +27,20 @@
                         <div class="panel-heading">
                             Projects
                         </div>
-                        <ul class="list-group">
+                        <div class="list-group">
                             {% for project in projects %}
-                                <li class="list-group-item">
+                                <a
+                                    class="list-group-item"
+                                    href="/project/{{ project.name }}">
                                     {{ project.name }}
-                                    {# TODO: implement inversed references for all models #}
-                                    <ul>
-                                        {% for feature in project.features %}
-                                            <li>{{ feature.name }}
-                                                <ul>
-                                                    {% for task in feature.tasks %}
-                                                        <li>{{ task.name }}</li>
-                                                    {% endfor %}
-                                                </ul>
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                </li>
+                                    <div class="badge">
+                                        {{ project.features|count}}
+                                    </div>
+                                </a>
                             {% else %}
-                                <li class="list-group-item">There's no projects</li>
+                                <div class="list-group-item">There's no projects</div>
                             {% endfor %}
-                        </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="col-sm-6">

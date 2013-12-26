@@ -26,6 +26,18 @@ user2 = User(
 
 user2.save()
 
+# Create tasks
+task1 = CodeTask(
+    name='Create a user',
+    description='Create a model for the user.',
+    created_by=user1
+)
+
+task2 = DocumentationTask(
+    name='Document the ODM setup',
+    description='We need better documentation of the ODM.',
+    created_by=user2
+)
 
 # Create project
 project = Project(
@@ -34,38 +46,17 @@ project = Project(
                  'sed do eiusmod tempor incididunt ut labore et dolore magna '
                  'aliqua. Ut enim ad minim veniam, quis nostrud exercitation '
                  'ullamco laboris nisi ut aliquip ex ea commodo consequat.'),
-    created_by=user1
+    created_by=user1,
+    features = [Feature(
+        name='ODM',
+        description='Get the document manager up and running.',
+        created_by=user2,
+        tasks=[task1, task2]
+    )]
+
 )
 
 project.save()
 
 
-# Create feature
-feature = Feature(
-    name='ODM',
-    description='Get the document manager up and running.',
-    project=project,
-    created_by=user2
-)
 
-feature.save()
-
-
-# Create tasks
-task1 = CodeTask(
-    name='Create a user',
-    description='Create a model for the user.',
-    feature=feature,
-    created_by=user1
-)
-
-task1.save()
-
-task2 = DocumentationTask(
-    name='Document the ODM setup',
-    description='We need better documentation of the ODM.',
-    feature=feature,
-    created_by=user2
-)
-
-task2.save()
