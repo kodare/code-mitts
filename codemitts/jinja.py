@@ -31,7 +31,7 @@ def add_flash_message(type, content):
         count = 0
         cherrypy.session['flash_messages'] = {}
 
-    cherrypy.session['flash_messages'][count] = {"type": type, "content": content}
+    cherrypy.session['flash_messages'][count] = message
 
 
 def get_flash_messages():

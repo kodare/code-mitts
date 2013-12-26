@@ -57,6 +57,3 @@ project = Project(
 )
 
 project.save()
-
-
-

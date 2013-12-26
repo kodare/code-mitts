@@ -1,7 +1,6 @@
 import cherrypy
-from codemitts.authentication import getUserEmail
 from codemitts.models.Project import Project as ProjectModel
-from codemitts.jinja import render_template, add_flash_message
+from codemitts.jinja import render_template
 
 
 class Project():

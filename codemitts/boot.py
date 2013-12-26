@@ -5,6 +5,9 @@ from codemitts.models import database_connect
 from codemitts.controllers.root import Root
 from codemitts.config import config as codemitts_config
 
+# These are imported, but not used, just to register them in the mongoengine
+# document registry as required.
+# TODO Suppress pyflakes warning about these
 from codemitts.models.CodeTask import CodeTask
 from codemitts.models.DocumentationTask import DocumentationTask
 
