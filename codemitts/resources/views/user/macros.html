@@ -1,0 +1,38 @@
+{% macro card(user) -%}
+    <div class="well well-sm user-card">
+        <div class="row">
+            <div class="col-sm-3 col-xs-2">
+                <img
+                    class="img-responsive"
+                    alt="{{ user.username }}"
+                    src="{{ user.getGravatarURL(512)}}" />
+            </div>
+            <div class="col-sm-9 col-xs-10">
+                <h1 class="username">
+                    {{ user.username }}
+                    {% if user == session.user %}
+                        <small>
+                            <span class="label label-info pull-right">
+                                This is you
+                            </span>
+                        </small>
+                    {% endif %}
+                </h1>
+
+                <ul class="list-unstyled">
+                    <li>
+                        Name
+                        <span class="first-name">{{ user.first_name }}</span>
+                        <span class="last-name">{{ user.last_name }}</span>
+                    </li>
+                    <li>
+                        Joined
+                        <span class="join-date">
+                            {{- user.created_at.strftime('%Y-%m-%d') -}}
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{%- endmacro %}

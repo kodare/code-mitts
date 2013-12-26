@@ -1,5 +1,6 @@
 import cherrypy
-from codemitts.authentication import getAuthURL, getAuthSession, getUserEmail
+from codemitts.authentication import (getAuthURL, getAuthSession, getUserEmail,
+                                      getUserInformation)
 from codemitts.models.User import User as UserModel
 from codemitts.jinja import render_template, add_flash_message
 
@@ -32,6 +33,10 @@ class Authentication():
         except UserModel.DoesNotExist:
             add_flash_message("info", "You don't got an account yet!")
             raise cherrypy.HTTPRedirect("/user/new")
+
+        info = getUserInformation(auth_session)
+        user.gravatar_id = info['gravatar_id']
+        user.save()
 
         add_flash_message("success", "You successfully signed in!")
         cherrypy.session['user'] = user

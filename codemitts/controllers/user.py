@@ -41,4 +41,4 @@ class User():
             return render_template('error.html', data)
 
         data = {'user': user}
-        return render_template('user.html', data)
+        return render_template('user/show.html', data)
