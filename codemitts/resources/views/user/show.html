@@ -11,6 +11,30 @@
             <div class="col-sm-6">
                 {{ user_macros.card(user) }}
             </div>
+            {% if projects %}
+                <div class="col-sm-6">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h2>Projects created</h2>
+                        </div>
+                        <div class="list-group">
+                            {% for project in projects %}
+                                <a
+                                    class="list-group-item"
+                                    href="/project/{{ project.name }}">
+                                    <h3 class="list-group-item-heading">
+                                        {{- project.name -}}
+                                    </h3>
+                                    <p class="list-group-item-text">
+                                        {{- project.description -}}
+                                    </h3>
+                                    </p>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

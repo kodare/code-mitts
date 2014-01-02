@@ -1,6 +1,7 @@
 import cherrypy
 from codemitts.authentication import getUserEmail
 from codemitts.models.User import User as UserModel
+from codemitts.models.Project import Project as ProjectModel
 from codemitts.jinja import render_template, add_flash_message
 
 
@@ -40,5 +41,7 @@ class User():
             data = {'error_message': '404 User not found'}
             return render_template('error.html', data)
 
-        data = {'user': user}
+        projects = ProjectModel.objects(created_by=user)
+
+        data = {'user': user, 'projects': projects}
         return render_template('user/show.html', data)
