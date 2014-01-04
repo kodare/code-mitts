@@ -3,7 +3,7 @@ from mongoengine import (EmbeddedDocument, StringField, EmbeddedDocumentField,
 from codemitts.models.Task import Task
 
 
-class Feature(EmbeddedDocument):
+class Quest(EmbeddedDocument):
     name = StringField()
     description = StringField()
     tasks = ListField(EmbeddedDocumentField(Task))

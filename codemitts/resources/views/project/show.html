@@ -18,14 +18,14 @@
             </div>
 
             <div class="col-sm-8">
-                <h2>Features</h2>
+                <h2>Quests</h2>
                 <ul class="list-group">
-                    {% for feature in project.features %}
+                    {% for quest in project.quests %}
                         <li class="list-group-item">
-                            <h3>{{ feature.name }}</h3>
-                            {{ feature.description }}
+                            <h3>{{ quest.name }}</h3>
+                            {{ quest.description }}
                             <ul>
-                                {% for task in feature.tasks %}
+                                {% for task in quest.tasks %}
                                     <li>
                                         <h4>{{ task.name }}</h4>
                                         {{ task.description }}
@@ -34,7 +34,7 @@
                             </ul>
                         </li>
                     {% else %}
-                        <li class="list-group-item">There's no features</li>
+                        <li class="list-group-item">There's no quests</li>
                     {% endfor %}
                 </ul>
             </div>
